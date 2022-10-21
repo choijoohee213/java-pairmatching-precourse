@@ -38,7 +38,7 @@ public class PairMatchingController implements MenuItemController {
 			} else if (answer.equals("아니오")) {
 				return false;
 			}
-			throw new IllegalStateException(Constant.ERROR_PAIR_MATCHING_REMATCH_INPUT_MESSAGE);
+			throw new IllegalArgumentException (Constant.ERROR_PAIR_MATCHING_REMATCH_INPUT_MESSAGE);
 		}
 		return true;
 	}

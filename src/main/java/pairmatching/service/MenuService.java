@@ -19,11 +19,15 @@ public class MenuService {
 	private MenuService() {
 	}
 
-	public void startMenu(String input) {
+	public boolean startMenu(String input) throws IllegalArgumentException {
 		Menu menu = Stream.of(Menu.values())
 			.filter(m -> input.equals(m.getCommand()))
 			.findAny()
 			.orElseThrow(() -> new IllegalArgumentException(ERROR_INPUT_MENU_MESSAGE));
+		if(menu.equals(Menu.EXIT)) {
+			return false;
+		}
 		menu.getMenuItemController().run();
+		return true;
 	}
 }

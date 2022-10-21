@@ -20,7 +20,6 @@ public class MenuController {
 	public void run() {
 		do {
 			OutputView.printMenu();
-			MenuService.getInstance().startMenu(InputView.input());
-		} while (true);
+		} while (MenuService.getInstance().startMenu(InputView.input()));
 	}
 }
