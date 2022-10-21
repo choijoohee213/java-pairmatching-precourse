@@ -1,6 +1,5 @@
 package pairmatching.controller;
 
-import pairmatching.domain.Menu;
 import pairmatching.service.MenuService;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
@@ -15,13 +14,13 @@ public class MenuController {
 		return instance;
 	}
 
+	private MenuController() {
+	}
+
 	public void run() {
 		do {
 			OutputView.printMenu();
-			Menu menu = MenuService.getInstance().inputMenu(InputView.inputMenu());
-			MenuItemController menuItemController = menu.getMenuItemController();
-			menuItemController.run();
-
+			MenuService.getInstance().startMenu(InputView.input());
 		} while (true);
 	}
 }

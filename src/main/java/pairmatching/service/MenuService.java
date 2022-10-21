@@ -1,8 +1,9 @@
 package pairmatching.service;
 
+import static pairmatching.common.Constant.*;
+
 import java.util.stream.Stream;
 
-import pairmatching.common.Constant;
 import pairmatching.domain.Menu;
 
 public class MenuService {
@@ -15,10 +16,14 @@ public class MenuService {
 		return instance;
 	}
 
-	public Menu inputMenu(String input) {
-		return Stream.of(Menu.values())
+	private MenuService() {
+	}
+
+	public void startMenu(String input) {
+		Menu menu = Stream.of(Menu.values())
 			.filter(m -> input.equals(m.getCommand()))
 			.findAny()
-			.orElseThrow(() -> new IllegalArgumentException(Constant.ERROR_INPUT_MENU_MESSAGE));
+			.orElseThrow(() -> new IllegalArgumentException(ERROR_INPUT_MENU_MESSAGE));
+		menu.getMenuItemController().run();
 	}
 }
