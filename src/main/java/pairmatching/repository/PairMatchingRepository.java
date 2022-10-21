@@ -33,4 +33,8 @@ public class PairMatchingRepository {
 		}
 		return sb.toString();
 	}
+
+	public void deleteAll() {
+		pairMatchingInfo.clear();
+	}
 }

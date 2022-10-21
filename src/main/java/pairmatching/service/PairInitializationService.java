@@ -1,5 +1,10 @@
 package pairmatching.service;
 
+import java.util.Arrays;
+
+import pairmatching.domain.Level;
+import pairmatching.repository.PairMatchingRepository;
+
 public class PairInitializationService {
 	private static PairInitializationService instance;
 
@@ -10,7 +15,9 @@ public class PairInitializationService {
 		return instance;
 	}
 
-	public void run() {
-
+	public void initialize() {
+		PairMatchingRepository.getInstance().deleteAll();
+		Arrays.stream(Level.values())
+			.forEach(Level::clearPairRecords);
 	}
 }

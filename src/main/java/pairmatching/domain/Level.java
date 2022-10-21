@@ -32,6 +32,10 @@ public enum Level {
 		return pairRecords.contains((crew1.toString() + crew2.toString()).hashCode());
 	}
 
+	public void clearPairRecords() {
+		pairRecords.clear();
+	}
+
 	public String getName() {
 		return name;
 	}

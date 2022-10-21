@@ -1,5 +1,7 @@
 package pairmatching.controller;
 
+import pairmatching.service.PairInitializationService;
+
 public class PairInitializationController implements MenuItemController {
 	private static PairInitializationController instance;
 
@@ -12,6 +14,6 @@ public class PairInitializationController implements MenuItemController {
 
 	@Override
 	public void run() {
-
+		PairInitializationService.getInstance().initialize();
 	}
 }
